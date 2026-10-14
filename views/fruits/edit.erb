@@ -1,3 +1,82 @@
-<h2>Uppdatera frukt</h2>
+<form
+  action="/fruits/<%= @fruit['id'] %>/update"
+  method="post"
+>
 
-<code>TODO: Skapa ett formulär som uppdaterar en frukt</code>
+  <label>
+    Frukt:
+
+    <input
+      type="text"
+      name="fruit_name"
+      value="<%= @fruit['name'] %>"
+    >
+  </label>
+
+  <br><br>
+
+  <label>
+    Beskrivning:
+
+    <input
+      type="text"
+      name="fruit_description"
+      value="<%= @fruit['description'] %>"
+    >
+  </label>
+
+  <br><br>
+
+  <label>
+    Smakpoäng:
+
+    <input
+      type="number"
+      name="fruit_tastiness"
+      value="<%= @fruit['tastiness'] %>"
+      min="1"
+      max="10"
+    >
+  </label>
+
+  <br><br>
+
+  <label>
+    Ursprungsland:
+
+    <input
+      type="text"
+      name="fruit_country"
+      value="<%= @fruit['country'] %>"
+    >
+  </label>
+
+  <br><br>
+
+  <label>
+    Kategori:
+
+    <select name="category_id">
+
+      <% @categories.each do |category| %>
+
+        <option
+          value="<%= category['id'] %>"
+          <%= 'selected' if category['id'].to_s == @fruit['category_id'].to_s %>
+        >
+          <%= category['name'] %>
+        </option>
+
+      <% end %>
+
+    </select>
+  </label>
+
+  <br><br>
+
+  <input
+    type="submit"
+    value="Uppdatera"
+  >
+
+</form>

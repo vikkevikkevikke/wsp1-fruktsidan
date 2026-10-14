@@ -1,0 +1,18 @@
+<h1>Ny kategori</h1>
+
+<form action="/categories" method="post">
+  <label for="name">Namn på kategori:</label>
+  <input type="text" id="name" name="name" required>
+
+  <h3>Välj frukter</h3>
+
+  <% @fruits.each do |fruit| %>
+    <label>
+      <input type="checkbox" name="fruits[]" value="<%= fruit['id'] %>">
+      <%= fruit['name'] %>
+    </label>
+    <br>
+  <% end %>
+
+  <input type="submit" value="Skapa kategori">
+</form>

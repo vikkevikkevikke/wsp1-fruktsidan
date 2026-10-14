@@ -1,10 +1,15 @@
 <h2>Mer information om vald frukt</h2>
 
-<code>TODO: Visa all info som finns i databasen om aktuell frukt</code>
+<h2>Mer info om: <%= @fruit['name'] %></h2>
 
-<h2>Mer info om: <%= @fruit['name'] %></h2> 
+<p>
+  Kategori:
+  <%= @fruit['category_name'] %>
+</p>
 
-<p>Smakpoäng:
+<p>
+  Smakpoäng:
+
   <% @fruit["tastiness"].to_i.times do %>
     ★
   <% end %>
@@ -14,6 +19,18 @@
   <% end %>
 </p>
 
-<p>Beskrivning: <%= @fruit["description"] %></p>
+<p>
+  Beskrivning:
+  <%= @fruit["description"] %>
+</p>
 
-<p>Pris: <%= @fruit["price"] %></p>
+<p>
+  Ursprungsland:
+  <%= @fruit["country"] %>
+</p>
+
+<br>
+
+<a href="/fruits">
+  Tillbaka till alla frukter
+</a>

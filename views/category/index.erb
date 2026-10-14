@@ -1,0 +1,25 @@
+<h1>Våra kategorier</h1>
+
+<a href="/categories/new">Ny kategori</a>
+
+<ul>
+  <% @categories.each do |category| %>
+    <li>
+      <a href="/categories/<%= category['id'] %>">
+        <strong><%= category['name'] %></strong>
+      </a>
+
+      <a href="/categories/<%= category['id'] %>/edit" class="edit">
+        Ändra
+      </a>
+
+      <form
+        action="/categories/<%= category['id'] %>/delete"
+        method="post"
+        class="delete"
+      >
+        <input type="submit" value="Ta bort">
+      </form>
+    </li>
+  <% end %>
+</ul>

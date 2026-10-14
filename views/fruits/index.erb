@@ -1,12 +1,39 @@
-<h2>Alla frukter i butiken</h2>
-
-<code>TODO: Skriv ut en lista (ul + li) för att visa alla frukter i databasen</code>
+<h1>Fruktsidan</h1>
 
 <ul>
-<% @fruits.each do |fruit| %>
-<li>
-		<a href="/fruits/<%= fruit["id"]%>">
-				<%= fruit["name"] %></a>
-	</li>
-<% end %>
+  <% @fruits.each do |fruit| %>
+
+    <li>
+
+      <a href="/fruits/<%= fruit['id'] %>">
+        <strong><%= fruit['name'] %></strong>
+      </a>
+
+      <a
+        href="/fruits/<%= fruit['id'] %>/edit"
+        class="edit"
+      >
+        Ändra
+      </a>
+
+      <form
+        action="/fruits/<%= fruit['id'] %>/delete"
+        method="post"
+        class="delete"
+      >
+        <input
+          type="submit"
+          value="Ta bort"
+        >
+      </form>
+
+    </li>
+
+  <% end %>
 </ul>
+
+<br>
+
+<a href="/fruits/new">
+  Lägg till ny frukt
+</a>

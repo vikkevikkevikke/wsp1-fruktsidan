@@ -1,3 +1,99 @@
-<h2>Ny frukt</h2>
+<h2>Lägg till ny frukt</h2>
 
-<code>TODO: Skapa ett formulär för att skapa en ny frukt</code>
+<form action="/fruits" method="post">
+
+  <div>
+    <label for="fruit_name">
+      Fruktens namn:
+    </label>
+
+    <br>
+
+    <input
+      type="text"
+      id="fruit_name"
+      name="fruit_name"
+      required
+    >
+  </div>
+
+  <div>
+    <label for="fruit_tastiness">
+      Smakpoäng (1-10):
+    </label>
+
+    <br>
+
+    <input
+      type="number"
+      id="fruit_tastiness"
+      name="fruit_tastiness"
+      min="1"
+      max="10"
+    >
+  </div>
+
+  <div>
+    <label for="fruit_description">
+      Beskrivning:
+    </label>
+
+    <br>
+
+    <input
+      type="text"
+      id="fruit_description"
+      name="fruit_description"
+    >
+  </div>
+
+  <div>
+    <label for="fruit_country">
+      Ursprungsland:
+    </label>
+
+    <br>
+
+    <input
+      type="text"
+      id="fruit_country"
+      name="fruit_country"
+    >
+  </div>
+
+  <div>
+    <label for="category_id">
+      Kategori:
+    </label>
+
+    <br>
+
+    <select
+      id="category_id"
+      name="category_id"
+      required
+    >
+
+      <option value="">
+        Välj kategori
+      </option>
+
+      <% @categories.each do |category| %>
+
+        <option value="<%= category['id'] %>">
+          <%= category['name'] %>
+        </option>
+
+      <% end %>
+
+    </select>
+  </div>
+
+  <br>
+
+  <input
+    type="submit"
+    value="Spara"
+  >
+
+</form>
